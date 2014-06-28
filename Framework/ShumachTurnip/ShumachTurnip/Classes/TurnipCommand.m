@@ -17,9 +17,12 @@
 + (NSString *)performAction:(id)action target:(id)target;
 + (NSString *)performMethod:(id)target methodName:(NSString *)methodName args:(id)args;
 + (NSString *)performGetObject:(id)target;
++ (NSString *)performGetInstanceValue:(id)target args:(id)args;
++ (NSString *)performSetInstanceValue:(id)target args:(id)args;
 + (NSString *)performSetValue:(id)target args:(id)args;
 + (NSString *)performValueForKey:(id)target args:(id)args;
 + (id)convertReturnValue:(void *)buffer returnType:(const char *)returnType;
++ (id)convertFromOffset:(void *)offset instanceType:(const char *)instanceType;
 + (id)convertToValue:(NSDictionary *)dict;
 + (void)setArgument:(NSInvocation *)invocation index:(NSInteger)index argType:(const char *)argType arg:(id)arg;
 + (void)performInvocation:(NSDictionary *)dict;
@@ -85,6 +88,7 @@
             if ([name isEqualToString:paths[i]]) {
               id  objValue;
               object_getInstanceVariable(target, ivar_name, (void **)&objValue);
+    
               if (!objValue) {
                 return nil;
               } else {
@@ -122,6 +126,12 @@
     return [TurnipCommand performMethod:target methodName:methodName args:args];
   } else if ([[action objectForKey:@"type"] isEqualToString:@"getObject"]) {
     return [TurnipCommand performGetObject:target];
+  } else if ([[action objectForKey:@"type"] isEqualToString:@"getInstanceValue"]) {
+    id  args = [action objectForKey:@"args"];
+    return [TurnipCommand performGetInstanceValue:target args:args];
+  } else if ([[action objectForKey:@"type"] isEqualToString:@"setInstanceValue"]) {
+    id  args = [action objectForKey:@"args"];
+    return [TurnipCommand performSetInstanceValue:target args:args];
   } else if ([[action objectForKey:@"type"] isEqualToString:@"setValue"]) {
     id  args = [action objectForKey:@"args"];
     return [TurnipCommand performSetValue:target args:args];
@@ -137,6 +147,20 @@
 + (NSString *)performMethod:(id)target methodName:(NSString *)methodName args:(id)args
 {
   SEL _selector = NSSelectorFromString(methodName);
+
+/*
+  unsigned int      outCount = 0;
+  Class             clazz = [target class];
+  Method*           methods = class_copyMethodList(clazz, &outCount);
+
+  NSLog(@"method count:%d", outCount);
+
+  for (int j = 0; j < outCount; j++) {
+    Method  method = methods[j];
+    SEL sel = method_getName(method);
+    NSLog(@"name:%@", NSStringFromSelector(sel));
+  }
+  */
 
   if ([target respondsToSelector:_selector]) {
     NSMethodSignature*  signature = [target methodSignatureForSelector:_selector];
@@ -237,14 +261,9 @@
 
 + (NSString *)performGetObject:(id)target
 {
-  NSDictionary* responseDic;
-
   NSString* className = [NSString stringWithFormat:@"%s", class_getName([target class])];
-  //unsigned int  outCount = 0;
-  //Ivar* ivars = class_copyIvarList([target class], &outCount);
-  //NSLog(@"ivars count:%d", outCount);
 
-  responseDic = 
+  NSDictionary* responseDic = 
     [NSDictionary dictionaryWithObjectsAndKeys:
       className, @"return", 
       @"true", @"success", 
@@ -256,6 +275,120 @@
   NSString* response = [NSString stringWithFormat:@"%@\n", json];
 
   return response;
+}
+
+
++ (NSString *)performGetInstanceValue:(id)target args:(id)args
+{
+  unsigned int    outCount = 0;
+  Class           clazz = [target class];
+  Ivar*           ivars = class_copyIvarList(clazz, &outCount);
+
+  NSArray*        array = (NSArray *)args;
+  NSDictionary*   dict = [array objectAtIndex:0];
+
+  for (int j = 0; j < outCount; j++) {
+    Ivar  ivar = ivars[j];
+    const char* ivar_name = ivar_getName(ivar);
+    NSString* name = [NSString stringWithCString:ivar_name encoding:NSUTF8StringEncoding]; 
+
+    if ([name isEqualToString:[dict objectForKey:@"name"]]) {
+      id value = nil;
+
+      const char* type = (char *)[[dict objectForKey:@"type"] UTF8String];
+
+      if (!strcmp(type, @encode(id))) {
+        value = @"nil";
+      } else {
+        void* offset = (void *)((char *)target + ivar_getOffset(ivar));
+        value = [TurnipCommand convertFromOffset:offset instanceType:type];
+      }
+
+      NSDictionary* responseDic = 
+        [NSDictionary dictionaryWithObjectsAndKeys:
+          value, @"return", 
+          @"true", @"success", 
+          @"getInstanceValue", @"type",
+            nil
+        ];
+      
+      NSString* json = [JsonUtils generateJson:responseDic];
+      NSString* response = [NSString stringWithFormat:@"%@\n", json];
+
+      return response;
+    }
+  }
+
+  return @"invalid request perform getInstanceValue because instance is not exist\n";
+}
+
+
++ (NSString *)performSetInstanceValue:(id)target args:(id)args
+{
+  unsigned int    outCount = 0;
+  Class           clazz = [target class];
+  Ivar*           ivars = class_copyIvarList(clazz, &outCount);
+
+  NSArray*        array = (NSArray *)args;
+  NSDictionary*   dict = [array objectAtIndex:0];
+
+  for (int j = 0; j < outCount; j++) {
+    Ivar  ivar = ivars[j];
+    const char* ivar_name = ivar_getName(ivar);
+    NSString* name = [NSString stringWithCString:ivar_name encoding:NSUTF8StringEncoding]; 
+
+    if ([name isEqualToString:[dict objectForKey:@"name"]]) {
+      const char* type = (char *)[[dict objectForKey:@"type"] UTF8String];
+
+      unsigned int  ptr;
+      bool          isPerform = false; 
+
+      if (!strcmp(type, @encode(BOOL))) {
+        BOOL value = [[dict objectForKey:@"value"] boolValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      } else if (!strcmp(type, @encode(bool))) {
+        bool value = [[dict objectForKey:@"value"] boolValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      } else if (!strcmp(type, @encode(double))) {
+        double  value = [[dict objectForKey:@"value"] doubleValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      } else if (!strcmp(type, @encode(float))) {
+        float value = [[dict objectForKey:@"value"] floatValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      } else if (!strcmp(type, @encode(int))) {
+        int value = [[dict objectForKey:@"value"] intValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      } else if (!strcmp(type, @encode(unsigned int))) {
+        unsigned int  value = [[dict objectForKey:@"value"] unsignedIntValue];
+        ptr = (unsigned int)&value;
+        isPerform = true;
+      }
+
+      if (isPerform) {
+        object_setInstanceVariable(target, ivar_name, *(void **)ptr);
+      }
+
+      NSDictionary* responseDic = 
+        [NSDictionary dictionaryWithObjectsAndKeys:
+          @"nil", @"return", 
+          @"true", @"success", 
+          @"setInstanceValue", @"type",
+            nil
+        ];
+      
+      NSString* json = [JsonUtils generateJson:responseDic];
+      NSString* response = [NSString stringWithFormat:@"%@\n", json];
+
+      return response;
+    }
+  }
+
+  return @"invalid request perform getInstanceValue because instance is not exist\n";
 }
 
 
@@ -320,17 +453,19 @@
     NSDictionary* invDict = 
       [NSDictionary dictionaryWithObjectsAndKeys:target, @"target", invocation, @"invocation", nil];
     [TurnipCommand performSelectorOnMainThread:@selector(performInvocation:) withObject:invDict waitUntilDone:YES];
+    
     id returnValue;
+
     [invocation getReturnValue:&returnValue];
-  
+
     NSDictionary* responseDic = 
-      [NSDictionary dictionaryWithObjectsAndKeys:
-      returnValue, @"return", 
-        @"true", @"success", 
-        @"valueForKey", @"type", 
+     [NSDictionary dictionaryWithObjectsAndKeys:
+        returnValue, @"return", 
+        @"success", @"status",
+        @"valueForKey", @"type",
         nil
-    ];
-  
+      ];
+
     NSString* response = [JsonUtils generateJson:responseDic];
 
     return [NSMutableString stringWithFormat:@"%@\n", response];
@@ -344,6 +479,8 @@
 {
   if (!strcmp(returnType, @encode(BOOL))) {
     return [NSNumber numberWithBool:*((BOOL *)buffer)];
+  } else if (!strcmp(returnType, @encode(bool))) {
+    return [NSNumber numberWithBool:*((bool *)buffer)];
   } else if (!strcmp(returnType, @encode(char))) {
     return [NSNumber numberWithChar:*((char *)buffer)];
   } else if (!strcmp(returnType, @encode(double))) {
@@ -378,6 +515,34 @@
 }
 
 
++ (id)convertFromOffset:(void *)offset instanceType:(const char *)instanceType
+{
+  if (instanceType == nil) {
+    return nil;
+  } else if (!strcmp(instanceType, @encode(BOOL))) {
+    BOOL  value = *(BOOL *)offset;
+    return [NSNumber numberWithBool:value];
+  } else if (!strcmp(instanceType, @encode(bool))) {
+    bool  value = *(bool *)offset;
+    return [NSNumber numberWithBool:value];
+  } else if (!strcmp(instanceType, @encode(double))) {
+    double  value = *(double *)offset;
+    return [NSNumber numberWithDouble:value];
+  } else if (!strcmp(instanceType, @encode(float))) {
+    float value = *(float *)offset;
+    return [NSNumber numberWithFloat:value];
+  } else if (!strcmp(instanceType, @encode(int))) {
+    int value = *(int *)offset;
+    return [NSNumber numberWithInt:value];
+  } else if (!strcmp(instanceType, @encode(unsigned int))) {
+    unsigned int  value = *(unsigned int *)offset;
+    return [NSNumber numberWithUnsignedInt:value];
+  }
+
+  return nil;
+}
+
+
 + (id)convertToValue:(NSDictionary *)dict
 {
   if ([[dict objectForKey:@"valueType"] isEqualToString:@"BOOL"]) {
@@ -406,6 +571,14 @@
       value = YES;
     } else {
       value = NO;
+    }
+    [invocation setArgument:&value atIndex:index];
+  } else if (!strcmp(argType, @encode(bool))) {
+    bool value;
+    if ([arg isEqualToString:@"YES"]) {
+      value = true;
+    } else {
+      value = false;
     }
     [invocation setArgument:&value atIndex:index];
   } else if (!strcmp(argType, @encode(char))) {

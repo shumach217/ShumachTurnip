@@ -16,9 +16,6 @@ PATHS = [
 
 step "コネクション確立" do
 
-  # @adapter = ShumachTurnip::ConnectionAdapters::TCPAdapter.new '192.168.24.55', 8000
-  # @adapter = ShumachTurnip::ConnectionAdapters::TCPAdapter.new '192.168.1.87', 8000
-  # @adapter = ShumachTurnip::ConnectionAdapters::TCPAdapter.new '192.168.2.100', 8000
   @adapter = ShumachTurnip::ConnectionAdapters::TCPAdapter.new '172.20.10.1', 8000
 
 end

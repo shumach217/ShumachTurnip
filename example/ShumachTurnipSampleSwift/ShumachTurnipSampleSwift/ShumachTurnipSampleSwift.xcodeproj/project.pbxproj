@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2018304194931A900CEBA36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2018303194931A900CEBA36 /* AppDelegate.swift */; };
+		A2018306194931A900CEBA36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2018305194931A900CEBA36 /* Images.xcassets */; };
+		A2018312194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2018311194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.swift */; };
+		A201831C1949348100CEBA36 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201831B1949348100CEBA36 /* MainController.swift */; };
+		A201831E194936DD00CEBA36 /* ShumachTurnip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A201831D194936DD00CEBA36 /* ShumachTurnip.framework */; };
+		A2018320194937C100CEBA36 /* MainIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201831F194937C100CEBA36 /* MainIndexViewController.swift */; };
+		A2018322194937EE00CEBA36 /* PatternA_1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2018321194937EE00CEBA36 /* PatternA_1ViewController.swift */; };
+		A201832419493D8500CEBA36 /* PatternB_1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201832319493D8500CEBA36 /* PatternB_1ViewController.swift */; };
+		A2018326194957A100CEBA36 /* PatternB_2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2018325194957A100CEBA36 /* PatternB_2ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A201830C194931A900CEBA36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A20182F6194931A900CEBA36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A20182FD194931A900CEBA36;
+			remoteInfo = ShumachTurnipSampleSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A20182FE194931A900CEBA36 /* ShumachTurnipSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShumachTurnipSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2018302194931A900CEBA36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2018303194931A900CEBA36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A2018305194931A900CEBA36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A201830B194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShumachTurnipSampleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2018310194931A900CEBA36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2018311194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShumachTurnipSampleSwiftTests.swift; sourceTree = "<group>"; };
+		A201831B1949348100CEBA36 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		A201831D194936DD00CEBA36 /* ShumachTurnip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShumachTurnip.framework; path = System/Library/Frameworks/ShumachTurnip.framework; sourceTree = SDKROOT; };
+		A201831F194937C100CEBA36 /* MainIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainIndexViewController.swift; sourceTree = "<group>"; };
+		A2018321194937EE00CEBA36 /* PatternA_1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternA_1ViewController.swift; sourceTree = "<group>"; };
+		A201832319493D8500CEBA36 /* PatternB_1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternB_1ViewController.swift; sourceTree = "<group>"; };
+		A2018325194957A100CEBA36 /* PatternB_2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternB_2ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A20182FB194931A900CEBA36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A201831E194936DD00CEBA36 /* ShumachTurnip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2018308194931A900CEBA36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A20182F5194931A900CEBA36 = {
+			isa = PBXGroup;
+			children = (
+				A201831D194936DD00CEBA36 /* ShumachTurnip.framework */,
+				A2018300194931A900CEBA36 /* ShumachTurnipSampleSwift */,
+				A201830E194931A900CEBA36 /* ShumachTurnipSampleSwiftTests */,
+				A20182FF194931A900CEBA36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A20182FF194931A900CEBA36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A20182FE194931A900CEBA36 /* ShumachTurnipSampleSwift.app */,
+				A201830B194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2018300194931A900CEBA36 /* ShumachTurnipSampleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A2018303194931A900CEBA36 /* AppDelegate.swift */,
+				A2018305194931A900CEBA36 /* Images.xcassets */,
+				A2018301194931A900CEBA36 /* Supporting Files */,
+				A201831B1949348100CEBA36 /* MainController.swift */,
+				A201831F194937C100CEBA36 /* MainIndexViewController.swift */,
+				A2018321194937EE00CEBA36 /* PatternA_1ViewController.swift */,
+				A201832319493D8500CEBA36 /* PatternB_1ViewController.swift */,
+				A2018325194957A100CEBA36 /* PatternB_2ViewController.swift */,
+			);
+			path = ShumachTurnipSampleSwift;
+			sourceTree = "<group>";
+		};
+		A2018301194931A900CEBA36 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2018302194931A900CEBA36 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A201830E194931A900CEBA36 /* ShumachTurnipSampleSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2018311194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.swift */,
+				A201830F194931A900CEBA36 /* Supporting Files */,
+			);
+			path = ShumachTurnipSampleSwiftTests;
+			sourceTree = "<group>";
+		};
+		A201830F194931A900CEBA36 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2018310194931A900CEBA36 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A20182FD194931A900CEBA36 /* ShumachTurnipSampleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2018315194931A900CEBA36 /* Build configuration list for PBXNativeTarget "ShumachTurnipSampleSwift" */;
+			buildPhases = (
+				A20182FA194931A900CEBA36 /* Sources */,
+				A20182FB194931A900CEBA36 /* Frameworks */,
+				A20182FC194931A900CEBA36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShumachTurnipSampleSwift;
+			productName = ShumachTurnipSampleSwift;
+			productReference = A20182FE194931A900CEBA36 /* ShumachTurnipSampleSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A201830A194931A900CEBA36 /* ShumachTurnipSampleSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2018318194931A900CEBA36 /* Build configuration list for PBXNativeTarget "ShumachTurnipSampleSwiftTests" */;
+			buildPhases = (
+				A2018307194931A900CEBA36 /* Sources */,
+				A2018308194931A900CEBA36 /* Frameworks */,
+				A2018309194931A900CEBA36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A201830D194931A900CEBA36 /* PBXTargetDependency */,
+			);
+			name = ShumachTurnipSampleSwiftTests;
+			productName = ShumachTurnipSampleSwiftTests;
+			productReference = A201830B194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A20182F6194931A900CEBA36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "shusaku FUKUMINE";
+				TargetAttributes = {
+					A20182FD194931A900CEBA36 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					A201830A194931A900CEBA36 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = A20182FD194931A900CEBA36;
+					};
+				};
+			};
+			buildConfigurationList = A20182F9194931A900CEBA36 /* Build configuration list for PBXProject "ShumachTurnipSampleSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A20182F5194931A900CEBA36;
+			productRefGroup = A20182FF194931A900CEBA36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A20182FD194931A900CEBA36 /* ShumachTurnipSampleSwift */,
+				A201830A194931A900CEBA36 /* ShumachTurnipSampleSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A20182FC194931A900CEBA36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2018306194931A900CEBA36 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2018309194931A900CEBA36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A20182FA194931A900CEBA36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2018320194937C100CEBA36 /* MainIndexViewController.swift in Sources */,
+				A201831C1949348100CEBA36 /* MainController.swift in Sources */,
+				A201832419493D8500CEBA36 /* PatternB_1ViewController.swift in Sources */,
+				A2018304194931A900CEBA36 /* AppDelegate.swift in Sources */,
+				A2018322194937EE00CEBA36 /* PatternA_1ViewController.swift in Sources */,
+				A2018326194957A100CEBA36 /* PatternB_2ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2018307194931A900CEBA36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2018312194931A900CEBA36 /* ShumachTurnipSampleSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A201830D194931A900CEBA36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A20182FD194931A900CEBA36 /* ShumachTurnipSampleSwift */;
+			targetProxy = A201830C194931A900CEBA36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A2018313194931A900CEBA36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A2018314194931A900CEBA36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2018316194931A900CEBA36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = ShumachTurnipSampleSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A2018317194931A900CEBA36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = ShumachTurnipSampleSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A2018319194931A900CEBA36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShumachTurnipSampleSwift.app/ShumachTurnipSampleSwift";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShumachTurnipSampleSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		A201831A194931A900CEBA36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShumachTurnipSampleSwift.app/ShumachTurnipSampleSwift";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShumachTurnipSampleSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A20182F9194931A900CEBA36 /* Build configuration list for PBXProject "ShumachTurnipSampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2018313194931A900CEBA36 /* Debug */,
+				A2018314194931A900CEBA36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2018315194931A900CEBA36 /* Build configuration list for PBXNativeTarget "ShumachTurnipSampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2018316194931A900CEBA36 /* Debug */,
+				A2018317194931A900CEBA36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2018318194931A900CEBA36 /* Build configuration list for PBXNativeTarget "ShumachTurnipSampleSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2018319194931A900CEBA36 /* Debug */,
+				A201831A194931A900CEBA36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A20182F6194931A900CEBA36 /* Project object */;
+}
