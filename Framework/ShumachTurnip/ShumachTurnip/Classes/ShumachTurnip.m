@@ -39,7 +39,7 @@ static NSThread*      turnipThread = nil;
 
 - (void)start
 {
-  _tcpSocket = [[TCPSocket alloc] initWithPort:8000];
+  _tcpSocket = [[TCPSocket alloc] initWithPort:_port];
 
   dispatch_async(dispatch_get_main_queue(), ^{
     [_tcpSocket start];
